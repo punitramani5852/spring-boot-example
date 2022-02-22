@@ -5,7 +5,7 @@ stage('checkout')
     checkout scm
     }
 
-        stage('test')
+        stage('testing')
        {
         echo 'branch name ' + env.BRANCH_NAME
          if(env.BRANCH_NAME.startsWith("testing"))
@@ -20,21 +20,21 @@ stage('checkout')
 
              }
              }
-          stage('dev')
+          stage('devlopment')
           {
 
           if(env.BRANCH_NAME.startsWith("development"))
              {
                  steps
                      {
-                     sh 'echo "Working in testing branch"'
+                     sh 'echo "Working in development branch"'
                      sh "mvn clean compile"
                      sh "mvn test"
 
                      }
              }
              }
-             stage('prod')
+             stage('production')
              {
          if(env.BRANCH_NAME.startsWith("Production"))
         {
