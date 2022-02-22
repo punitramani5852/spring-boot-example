@@ -3,7 +3,7 @@ pipeline
     agent any
     stages
     {
-        stage('deploy')
+        stage('test')
        {
         echo 'branch name ' + env.BRANCH_NAME
          if(env.BRANCH_NAME.startsWith("testing"))
@@ -17,7 +17,11 @@ pipeline
 
 
              }
-         else if(env.BRANCH_NAME.startsWith("development"))
+             }
+          stage('dev')
+          {
+
+          if(env.BRANCH_NAME.startsWith("development"))
              {
                  steps
                      {
@@ -27,7 +31,10 @@ pipeline
 
                      }
              }
-        else if(env.BRANCH_NAME.startsWith("Production"))
+             }
+             stage('prod')
+             {
+         if(env.BRANCH_NAME.startsWith("Production"))
         {
           steps
           {
@@ -40,6 +47,7 @@ pipeline
 
 
           }
+        }
         }
 
 
