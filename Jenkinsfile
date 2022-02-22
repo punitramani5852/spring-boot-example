@@ -6,7 +6,7 @@ pipeline
         stage('deploy')
        {
         echo 'branch name ' + env.BRANCH_NAME
-         if(env.BRANCH_NAME.startsWith("testing")
+         if(env.BRANCH_NAME.startsWith("testing"))
              {
                  steps
                     {
@@ -17,7 +17,7 @@ pipeline
 
 
              }
-         else if(env.BRANCH_NAME.startsWith("development")
+         else if(env.BRANCH_NAME.startsWith("development"))
              {
                  steps
                      {
@@ -27,7 +27,7 @@ pipeline
 
                      }
              }
-        else if(env.BRANCH_NAME.startsWith("Production")
+        else if(env.BRANCH_NAME.startsWith("Production"))
         {
           steps
           {
