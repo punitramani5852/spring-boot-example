@@ -1,8 +1,10 @@
-pipeline
+node
 {
-    agent any
-    stages
+stage('checkout')
     {
+    checkout scm
+    }
+
         stage('test')
        {
         echo 'branch name ' + env.BRANCH_NAME
@@ -55,7 +57,8 @@ pipeline
 
 
 
-        }
+
+
 
 
 
@@ -64,4 +67,3 @@ pipeline
 
 
 
-}
