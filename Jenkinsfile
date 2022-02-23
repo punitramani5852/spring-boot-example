@@ -7,8 +7,8 @@ stage('checkout')
 
         stage('testing')
        {
-        echo 'branch name ' + env.BRANCH_NAME
-         if(env.BRANCH_NAME.startsWith("testing"))
+        echo 'branch name ' + env.GIT_BRANCH
+         if(env.GIT_BRANCH.startsWith("testing"))
              {
                  steps
                     {
@@ -23,7 +23,7 @@ stage('checkout')
           stage('devlopment')
           {
 
-          if(env.BRANCH_NAME.startsWith("development"))
+          if(env.GIT_BRANCH.startsWith("development"))
              {
                  steps
                      {
@@ -36,7 +36,7 @@ stage('checkout')
              }
              stage('production')
              {
-         if(env.BRANCH_NAME.startsWith("Production"))
+         if(env.GIT_BRANCH.startsWith("Production"))
         {
           steps
           {
